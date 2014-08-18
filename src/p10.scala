@@ -10,3 +10,7 @@ def pact[A](list: List[A]): List[List[A]] = {
       packed :: pact(next)
     }
 }
+
+def encode[A](list: List[A]): List[(_, A)] = {
+  pact(list).map(x => (x.length, x.head))
+}
